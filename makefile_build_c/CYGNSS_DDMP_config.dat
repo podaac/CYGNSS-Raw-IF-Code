@@ -1,0 +1,48 @@
+% Script to process ASCII int8 raw data
+% the "^" activates the line, otherwise it is ignored
+% Only select one search at a time (for now)
+
+% Cold Search flag
+% adjust other processing params 'T' -> only 1sec, 'D' -> wide Dopp range ~50k, zenith antenna (1) 'P' -> 1-10 non-coh
+^C 0
+C 1
+
+% Define Time processing (relative to start of file, second 0.0)
+% start second, end second, second step
+^T 1.0 2.0 1.0
+T 1.0 100.0 1.0
+
+% Define Input Raw IF File Name
+% F filename with path
+% Obs8, ocean
+F ../Input_DMR_Data/cyg08_raw_if_20170825_141629_data.bin
+% Obs8, Amazon
+F ../Input_DMR_Data/cyg08_raw_if_20180125_141649_data.bin
+% Obs8, Australia 80 mile beach
+^F ./RawIFData/cyg08_raw_if_20180515_215055_data.bin
+
+% Define second by second center Doppler frequencies
+% D PRN, antenna, Doppler range Hz, Doppler step Hz, Doppler Start, First Derivative Doppler, Second Derivative Doppler 
+% Obs8
+D 28 3 3000 200 1000 0 0 
+D 15 3 20000 500 -10000 0 0 
+D 24 3 20000 500 -10000 0 0 
+D 20 3 6000 200 5000 0 0 
+D 29 2 20000 500 -10000 0 0 
+% Direct signal cold search (+/- 50khz) all PRNs
+D 28 1 100000 500 -50000 0 0 
+% Obs8, 80mile
+D 20 3 5000 100 6000 -35.2 0 
+^D 26 2 5000 100 -2800 -37 0 
+D 21 2 5000 100 4000 -25.5 0 
+
+% Define General Processing Parameters
+% sampling freq, IF freq, num channels (3), non-coh averaging interval (ms), down sample delay resolution 
+% down sample=1=sampling freq=approx 1/16 chip delay steps, down sample=2=approx 1/8 chip delay steps, etc
+% IF freq updated to 3872200 (from 3872400) based on testing by Giuseppe Grieco (8th-Oct-2018)
+^P 16036200 3872200 3 1000 2
+P 16036200 3872200 3 3000 2
+% Direct signal cold search
+P 16036200 3872200 3 10 2
+
+

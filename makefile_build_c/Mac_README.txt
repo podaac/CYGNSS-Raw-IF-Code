@@ -22,3 +22,4 @@ Oct 23, 2018. Updated with bug fix by Giuseppe Grieco (8th-Oct-2018) in fftw_acq
 * imaginary part. The fft has been done through the function
 * fftw_plan_dft_1d that is used also to project the echo. This way
 * the output fft is hermitian symmetric and results are more reasonable
+
