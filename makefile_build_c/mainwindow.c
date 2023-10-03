@@ -42,6 +42,10 @@ double Dopp_temp;
 //    strcpy(ControlVars.Config_infilename,"../Configuration_Files/CYGNSS_DDMP_config.dat");
     strcpy(ControlVars.Config_infilename,"CYGNSS_DDMP_config.dat");
 
+    // Anthony Russel 2022-01-27
+    // Initializing flag 
+    flag = 0; 
+
     // From Advanced Path
     ControlVars.GPSweek = 1234;
     ControlVars.GPSseconds = 5678;
