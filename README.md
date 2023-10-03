@@ -1,7 +1,20 @@
 <!-- Title -->
-## CYGNSS Raw IF Processing Code
-This repo contains the code needed for processing and analyzing CYGNSS Raw IF Collections. The top level contains some documents explaning how the various programs work together. The processing consists of C code for processing the binary files and Matlab/Octave code for post-processing on the results.
+# CYGNSS Raw IF Processing Code
+This repo contains the code needed for processing and analyzing CYGNSS Raw IF Collections
 
-CYGNSS Raw IF files can be downloaded from the PO.DAAC at [https://podaac.jpl.nasa.gov/dataset/CYGNSS_L1_RAW_IF](https://podaac.jpl.nasa.gov/dataset/CYGNSS_L1_RAW_IF)
+## Repo Contents
+
+### Documentation
+Instructions for building the C code and an example of how to perform the processing on a Raw IF collection
+
+### Makefile Build C
+C code and Makefile for processing the binary Raw IF files. Instructions for how to create an environment to build the code can be foudn in the 'documentation' directory
+
+### Post-processing Script
+Matlab/Octave code for analyzing on the results of the C code
+
+
+## Input Data Files
+CYGNSS Raw IF files that are used as input for this processing can be downloaded from the PO.DAAC at [https://podaac.jpl.nasa.gov/dataset/CYGNSS_L1_RAW_IF](https://podaac.jpl.nasa.gov/dataset/CYGNSS_L1_RAW_IF)
 
 
